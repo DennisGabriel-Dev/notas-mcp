@@ -33,3 +33,11 @@ def get_note(id: int) -> dict[Any, Any]:
         )
         nota = cursor.fetchone()
     return {'id': nota['id'], 'title': nota['titulo'], 'text': nota['texto']}
+
+@mcp.tool()
+def list_notes() -> list[dict[Any, Any]]:
+    """Lista todas as notas"""
+    with conectar() as conexao:
+        cursor = conexao.execute("SELECT * FROM notas")
+        notas = cursor.fetchall()
+    return [{"id": nota['id'], "title": nota['titulo'], "text": nota['texto']} for nota in notas]

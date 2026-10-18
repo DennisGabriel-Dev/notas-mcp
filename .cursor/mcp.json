@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "notas": {
+      "type": "stdio",
+      "command": "${workspaceFolder}/venv/bin/mcp",
+      "args": ["run", "${workspaceFolder}/mcp_notas.py"]
+    }
+  }
+}
